@@ -47,15 +47,111 @@
     if (hero) new IntersectionObserver(function (en) { heroVisible = en[0].isIntersecting; update(); }).observe(hero);
   }
 
+  /* ---------- Opmålingstegningen tegner sig selv ---------- */
+  var drawing = document.querySelector(".drawing");
+  if (drawing) requestAnimationFrame(function () { drawing.classList.add("go"); });
+
   /* ---------- Fade-in ved scroll ---------- */
   if ("IntersectionObserver" in window) {
-    var items = document.querySelectorAll(".card, .craft-list li, .steps li, .section-head, .portrait");
+    var items = document.querySelectorAll(".card, .plate, .tool, .timeline li, .steps li, .section-head, .portrait, .anatomy-figure, .principles div");
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
         if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
       });
     }, { rootMargin: "0px 0px -8% 0px" });
-    items.forEach(function (el) { el.classList.add("reveal"); io.observe(el); });
+    items.forEach(function (el) {
+      // forskudt indtoning af elementer i samme række
+      var i = Array.prototype.indexOf.call(el.parentNode.children, el);
+      if (!el.classList.contains("section-head")) el.style.transitionDelay = Math.min(i, 5) * 70 + "ms";
+      el.classList.add("reveal");
+      io.observe(el);
+    });
+  }
+
+  /* ---------- Anatomi af et bindingsværk ---------- */
+  var PARTS = {
+    syld: {
+      t: "Syld",
+      d: "Kampesten lagt i ler eller kalkmørtel. Sylden løfter træet fri af jordfugten og fordeler vægten.",
+      tip: "Sætninger i sylden giver skæve vægge og revner i tavlene."
+    },
+    syldstok: {
+      t: "Syldstok",
+      d: "Det nederste vandrette tømmer, som stolperne er tappet ned i. Den ligger tættest på fugten og tager imod regnvandet fra væggen.",
+      tip: "Her starter råd oftest. Ofte kan man nøjes med at laske nyt træ ind, hvor det er dårligt."
+    },
+    stolpe: {
+      t: "Stolper",
+      d: "De lodrette, bærende stykker, tappet i syldstok og rem. Afstanden mellem to stolper kaldes et fag.",
+      tip: "Rådne stolpefødder kan skiftes, uden at hele stolpen skal ud."
+    },
+    losholt: {
+      t: "Løsholter",
+      d: "Vandrette stykker mellem stolperne. De deler væggen op i tavl og holder stolperne på plads.",
+      tip: "Vand samler sig på oversiden – en god afrunding af kalken forlænger levetiden."
+    },
+    skraabaand: {
+      t: "Skråbånd",
+      d: "Diagonale afstivninger, der forhindrer væggen i at vride sig. Ofte samlet med blad eller tap.",
+      tip: "Fjernede skråbånd (f.eks. ved nye vinduer) er en klassisk årsag til skæve huse."
+    },
+    rem: {
+      t: "Rem",
+      d: "Det øverste vandrette tømmer. Remmen binder stolperne sammen og bærer bjælkelaget og taget.",
+      tip: "Utætte tagrender og tagfod giver råd i remmen – det ses tit først indefra."
+    },
+    bjaelke: {
+      t: "Bjælkeender",
+      d: "Loftsbjælkerne hviler på remmen og er ofte låst med en kæmning. I mange huse ses bjælkeenderne i facaden.",
+      tip: "Årringene på enden fortæller, om træet er kerneved – og kan bruges til at datere huset."
+    },
+    tavl: {
+      t: "Tavl",
+      d: "Felterne mellem tømmeret – udmuret med tegl eller lerklining på flettede kæppe, og kalket.",
+      tip: "Cementpuds og plastmaling lukker fugten inde. Kalk lader væggen ånde."
+    },
+    naegler: {
+      t: "Trænagler",
+      d: "Kløvede pløkke af eg, der låser samlingerne. Ingen søm, ingen skruer – træ i træ.",
+      tip: "En nagle, der stikker ud, kan være tegn på, at samlingen arbejder."
+    }
+  };
+
+  var anatomy = document.querySelector(".anatomy");
+  if (anatomy) {
+    var info = anatomy.querySelector(".part-info");
+    var buttons = anatomy.querySelectorAll(".parts button");
+    var groups = anatomy.querySelectorAll(".anatomy-svg [data-part]");
+    var current = null;
+
+    var select = function (key) {
+      current = key;
+      anatomy.classList.toggle("has-active", !!key);
+      groups.forEach(function (g) { g.classList.toggle("active", g.getAttribute("data-part") === key); });
+      buttons.forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-part") === key ? "true" : "false"); });
+      var p = PARTS[key];
+      if (!p) return;
+      info.innerHTML =
+        '<p class="part-info-kicker">Bygningsdel</p>' +
+        '<h3 class="part-info-title">' + p.t + "</h3>" +
+        '<p class="part-info-text">' + p.d + "</p>" +
+        '<p class="part-info-tip"><b>Det kigger jeg efter:</b> ' + p.tip + "</p>";
+    };
+
+    buttons.forEach(function (b) {
+      b.setAttribute("aria-pressed", "false");
+      b.addEventListener("click", function () { select(b.getAttribute("data-part")); });
+      b.addEventListener("mouseenter", function () { select(b.getAttribute("data-part")); });
+    });
+    groups.forEach(function (g) {
+      var key = g.getAttribute("data-part");
+      if (!PARTS[key]) { g.style.cursor = "default"; return; }
+      g.addEventListener("mouseenter", function () { select(key); });
+      g.addEventListener("click", function () { select(key); });
+    });
+
+    // start med syldstokken valgt, så man forstår ideen
+    select("syldstok");
   }
 
   /* ---------- Kontaktformular ---------- */

@@ -11,6 +11,7 @@
   <meta property="og:type" content="website">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/style.css">
+  <script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
 
@@ -36,9 +37,9 @@
 
     <nav id="nav" class="nav">
       <a href="#ydelser">Opgaver</a>
+      <a href="#anatomi">Bindingsværk</a>
       <a href="#haandvaerk">Håndværket</a>
       <a href="#om">Om Daniel</a>
-      <a href="#arbejdsgang">Arbejdsgang</a>
       <a class="btn btn-small" href="#kontakt">Få et tilbud</a>
     </nav>
   </div>
@@ -46,19 +47,19 @@
 
 <main id="indhold">
 
-  <!-- HERO -->
+  <!-- ============ HERO ============ -->
   <section class="hero">
     <div class="wrap hero-inner">
       <div class="hero-text">
         <p class="eyebrow">Kirker · Fredede huse · Bindingsværk</p>
-        <h1>Gammelt håndværk, der holder i hundrede år mere.</h1>
+        <h1>Gammelt håndværk, der <em>holder</em> i hundrede år mere.</h1>
         <p class="lead">
           Jeg er tømrer med speciale i de gamle byggeteknikker. Med økse, høvl og
           traditionelle samlinger istandsætter jeg kirker, fredede og bevaringsværdige
-          bygninger, så kulturarven bliver bevaret – og ikke bare repareret.
+          bygninger, så kulturarven bliver bevaret – ikke bare repareret.
         </p>
         <div class="hero-actions">
-          <a class="btn" href="#kontakt">Fortæl om dit projekt</a>
+          <a class="btn" href="#kontakt">Fortæl om dit projekt <span aria-hidden="true">→</span></a>
           <a class="btn btn-ghost" href="tel:+4500000000" data-phone>Ring: <span data-phone-text>00 00 00 00</span></a>
         </div>
         <ul class="hero-points">
@@ -68,72 +69,154 @@
         </ul>
       </div>
 
-      <figure class="hero-art" aria-hidden="true">
-        <svg viewBox="0 0 400 420" role="img">
-          <!-- Gavl i bindingsværk -->
-          <g class="frame">
-            <path class="roof" d="M20 170 200 20 380 170"/>
-            <rect class="infill" x="50" y="170" width="300" height="230"/>
-            <!-- tømmer -->
-            <path class="beam" d="M50 170h300M50 400h300M50 170v230M350 170v230M50 285h300"/>
-            <path class="beam" d="M125 170v230M200 170v230M275 170v230"/>
-            <path class="beam thin" d="M50 285 125 170M350 285 275 170M50 400l75-115M350 400l-75-115"/>
-            <!-- gavltrekant -->
-            <path class="beam" d="M60 170 200 53 340 170"/>
-            <path class="beam thin" d="M200 53v117M130 112h140M200 112l-70 58M200 112l70 58"/>
-            <!-- vinduer -->
-            <rect class="window" x="140" y="300" width="45" height="60"/>
-            <rect class="window" x="215" y="300" width="45" height="60"/>
-            <path class="mullion" d="M162.5 300v60M140 330h45M237.5 300v60M215 330h45"/>
-            <!-- trænagler -->
-            <g class="pegs">
-              <circle cx="125" cy="170" r="3"/><circle cx="200" cy="170" r="3"/><circle cx="275" cy="170" r="3"/>
-              <circle cx="125" cy="285" r="3"/><circle cx="200" cy="285" r="3"/><circle cx="275" cy="285" r="3"/>
-              <circle cx="50" cy="285" r="3"/><circle cx="350" cy="285" r="3"/>
-            </g>
+      <figure class="drawing" aria-label="Opmålingstegning af en gavl i bindingsværk med navne på bygningsdelene">
+        <svg class="hero-svg" viewBox="-110 20 740 560" aria-hidden="true">
+          <defs>
+            <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+              <path d="M0 0v6" stroke="#8a5a32" stroke-width="1" opacity=".35"/>
+            </pattern>
+          </defs>
+
+          <!-- tavl (kalkede felter) -->
+          <g class="d-fill">
+            <path d="M58 258H462V452H58z"/>
+            <path d="M58 250 260 72 462 250z"/>
+          </g>
+
+          <!-- syld -->
+          <g class="d-stones">
+            <path d="M44 472h432v26H44z" fill="url(#hatch)" stroke="none"/>
+            <ellipse cx="70" cy="485" rx="24" ry="12"/><ellipse cx="122" cy="487" rx="28" ry="11"/>
+            <ellipse cx="178" cy="484" rx="25" ry="13"/><ellipse cx="232" cy="487" rx="27" ry="11"/>
+            <ellipse cx="288" cy="485" rx="25" ry="12"/><ellipse cx="342" cy="486" rx="27" ry="12"/>
+            <ellipse cx="398" cy="484" rx="25" ry="13"/><ellipse cx="452" cy="486" rx="24" ry="11"/>
+          </g>
+
+          <!-- tømmer -->
+          <g class="d-beam">
+            <path class="draw" pathLength="1" d="M48 462H472"/>                         <!-- syldstok -->
+            <path class="draw" pathLength="1" d="M48 250H472"/>                         <!-- bjælke/rem -->
+            <path class="draw" pathLength="1" d="M60 452V258M160 452V258M260 452V258M360 452V258M460 452V258"/>
+            <path class="draw thin" pathLength="1" d="M60 352H460"/>                    <!-- løsholt -->
+            <path class="draw thin" pathLength="1" d="M68 444 152 360M452 444 368 360"/> <!-- skråbånd -->
+            <path class="draw" pathLength="1" d="M40 258 260 64 480 258"/>              <!-- spær -->
+            <path class="draw thin" pathLength="1" d="M148 168H372"/>                   <!-- hanebånd -->
+            <path class="draw thin" pathLength="1" d="M160 242V160M360 242V160M260 242V80"/>
+            <path class="draw thin" pathLength="1" d="M168 242 252 176M352 242 268 176"/>
+          </g>
+
+          <!-- vinduer -->
+          <g class="d-window">
+            <path d="M184 272h52v62h-52zM284 272h52v62h-52z"/>
+            <path class="mullion" d="M210 272v62M184 303h52M310 272v62M284 303h52"/>
+          </g>
+
+          <!-- trænagler -->
+          <g class="d-peg">
+            <circle cx="60" cy="352" r="3.2"/><circle cx="160" cy="352" r="3.2"/><circle cx="260" cy="352" r="3.2"/>
+            <circle cx="360" cy="352" r="3.2"/><circle cx="460" cy="352" r="3.2"/>
+            <circle cx="160" cy="250" r="3.2"/><circle cx="260" cy="250" r="3.2"/><circle cx="360" cy="250" r="3.2"/>
+            <circle cx="260" cy="168" r="3.2"/>
+          </g>
+
+          <!-- målsætning -->
+          <g class="d-dim">
+            <path d="M48 535H472M48 527v16M472 527v16M160 531v8M260 531v8M360 531v8"/>
+            <text x="260" y="560" text-anchor="middle">4 fag · 8,40 m</text>
+            <path d="M548 64V462M540 64h16M540 462h16M540 250h16"/>
+            <text x="562" y="160" class="vert">gavl</text>
+            <text x="562" y="360" class="vert">etage</text>
+          </g>
+
+          <!-- forklaringer -->
+          <g class="d-label">
+            <path d="M120 188 -40 188"/><circle cx="120" cy="188" r="4"/><text x="-104" y="194">Spær</text>
+            <path d="M330 168 610 120"/><circle cx="330" cy="168" r="4"/><text x="572" y="112">Hanebånd</text>
+            <path d="M110 352 -40 352"/><circle cx="110" cy="352" r="4"/><text x="-104" y="348">Løsholt</text>
+            <path d="M102 410 -40 410"/><circle cx="102" cy="410" r="4"/><text x="-104" y="406">Skråbånd</text>
+            <path d="M210 462 -40 462"/><circle cx="210" cy="462" r="4"/><text x="-104" y="458">Syldstok</text>
+            <path d="M160 300 -40 300"/><circle cx="160" cy="300" r="4"/><text x="-104" y="304">Stolpe</text>
+            <path d="M120 495 -40 495"/><circle cx="120" cy="495" r="4"/><text x="-104" y="510">Syld</text>
+            <path d="M260 352 610 400"/><circle cx="260" cy="352" r="4"/><text x="560" y="420">Trænagel</text>
           </g>
         </svg>
+
+        <figcaption class="title-block">
+          <span><b>Gavl i bindingsværk</b></span>
+          <span>Opmåling · M 1:50</span>
+          <span>Tegn. D.N.R.</span>
+        </figcaption>
+
+        <!-- roterende stempel -->
+        <div class="seal" aria-hidden="true">
+          <svg viewBox="0 0 200 200">
+            <defs><path id="circ" d="M100 100m-74 0a74 74 0 1 1 148 0a74 74 0 1 1-148 0"/></defs>
+            <circle cx="100" cy="100" r="96" class="seal-bg"/>
+            <circle cx="100" cy="100" r="58" class="seal-ring"/>
+            <text class="seal-text"><textPath href="#circ" startOffset="0">GAMMELT HÅNDVÆRK · KULTURARV · BINDINGSVÆRK · </textPath></text>
+            <!-- økse -->
+            <g transform="translate(100 100) rotate(-30)">
+              <path class="seal-handle" d="M-4 38C-2 10 0-14 2-34"/>
+              <path class="seal-axe" d="M-2-38 26-48 30-12 6-18 0-26z"/>
+            </g>
+          </svg>
+        </div>
       </figure>
     </div>
-    <div class="shavings" aria-hidden="true"></div>
   </section>
 
-  <!-- YDELSER -->
+  <!-- ============ MATERIALER ============ -->
+  <div class="marquee" aria-label="Materialer: eg, fyr, kalk, linolie, trætjære, ler, halm, trænagler, kampesten">
+    <div class="marquee-track" aria-hidden="true">
+      <span>Egetræ</span><i></i><span>Kalk</span><i></i><span>Linoliemaling</span><i></i><span>Trætjære</span><i></i>
+      <span>Kernefyr</span><i></i><span>Ler &amp; halm</span><i></i><span>Trænagler</span><i></i><span>Kampesten</span><i></i>
+      <span>Egetræ</span><i></i><span>Kalk</span><i></i><span>Linoliemaling</span><i></i><span>Trætjære</span><i></i>
+      <span>Kernefyr</span><i></i><span>Ler &amp; halm</span><i></i><span>Trænagler</span><i></i><span>Kampesten</span><i></i>
+    </div>
+  </div>
+
+  <!-- ============ I. OPGAVER ============ -->
   <section id="ydelser" class="section">
     <div class="wrap">
       <header class="section-head">
-        <p class="eyebrow">Opgaver</p>
-        <h2>Når bygningen er for værdifuld til en standardløsning</h2>
+        <p class="eyebrow"><span class="num">I</span> Opgaver</p>
+        <h2>Når bygningen er for værdifuld til en <em>standardløsning</em></h2>
         <p>Gamle bygninger er bygget med andre materialer og andre metoder end i dag. Derfor skal de også repareres på deres egne præmisser.</p>
       </header>
 
       <div class="cards">
         <article class="card">
+          <span class="card-no">01</span>
           <svg class="card-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 4v8M20 8h8M14 44V22l10-8 10 8v22M14 44h20M21 44v-9a3 3 0 0 1 6 0v9"/></svg>
           <h3>Kirker &amp; kirketømmer</h3>
-          <p>Istandsættelse af tagværk, tårne, klokkestole, bjælkelag og inventar i tæt dialog med menighedsråd, arkitekt og stiftsøvrighed.</p>
+          <p>Tagværker, tårne, klokkestole og bjælkelag – i tæt dialog med menighedsråd, arkitekt og stift.</p>
         </article>
         <article class="card">
+          <span class="card-no">02</span>
           <svg class="card-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M6 20 24 6l18 14M10 17v27h28V17M10 30h28M19 17v27M29 17v27M10 30l9-13M38 30l-9-13"/></svg>
           <h3>Bindingsværk</h3>
-          <p>Udskiftning af syldstokke, stolper, løsholter og skråbånd med tapsamlinger og trænagler – og kun det, der faktisk er nødvendigt.</p>
+          <p>Nye syldstokke, stolper, løsholter og skråbånd med tapsamlinger og trænagler – kun dér, hvor det er nødvendigt.</p>
         </article>
         <article class="card">
+          <span class="card-no">03</span>
           <svg class="card-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M4 22 24 8l20 14M8 19v25h32V19M16 44V30h16v14M24 30v14"/><circle cx="24" cy="20" r="3"/></svg>
           <h3>Fredede &amp; bevaringsværdige huse</h3>
-          <p>Arbejde der lever op til kravene fra Slots- og Kulturstyrelsen og kommunens bevaringsregler – med dokumentation undervejs.</p>
+          <p>Arbejde der lever op til kravene fra Slots- og Kulturstyrelsen og kommunens bevaringsregler.</p>
         </article>
         <article class="card">
-          <svg class="card-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M4 30 24 12l20 18M10 25v4M38 25v4M14 21l20 0M24 12v18M4 30h40M8 36h32"/></svg>
+          <span class="card-no">04</span>
+          <svg class="card-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M4 30 24 12l20 18M14 21h20M24 12v18M4 30h40M8 36h32"/></svg>
           <h3>Tagværk &amp; bjælkelag</h3>
-          <p>Reparation og udskiftning af spær, hanebånd, remme og bjælker. Gammelt tømmer genbruges, hvor det kan bære.</p>
+          <p>Spær, hanebånd, remme og bjælker repareres med laskninger. Gammelt tømmer genbruges, hvor det kan bære.</p>
         </article>
         <article class="card">
+          <span class="card-no">05</span>
           <svg class="card-icon" viewBox="0 0 48 48" aria-hidden="true"><rect x="12" y="6" width="24" height="36"/><path d="M24 6v36M12 24h24M16 10h4M28 10h4"/></svg>
           <h3>Døre, porte &amp; detaljer</h3>
-          <p>Rekonstruktion og reparation af porte, døre, gesimser og profiler – høvlet efter originalen.</p>
+          <p>Porte, døre, gesimser og profiler rekonstrueres – høvlet efter originalen.</p>
         </article>
         <article class="card">
+          <span class="card-no">06</span>
           <svg class="card-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M10 6h20l8 8v28H10zM30 6v8h8M16 22h16M16 28h16M16 34h10"/></svg>
           <h3>Registrering &amp; rådgivning</h3>
           <p>Besigtigelse, skadesregistrering og en ærlig vurdering af, hvad der bør gøres nu – og hvad der kan vente.</p>
@@ -142,47 +225,254 @@
     </div>
   </section>
 
-  <!-- HÅNDVÆRKET -->
-  <section id="haandvaerk" class="section section-dark">
-    <div class="wrap split">
-      <div>
-        <p class="eyebrow">Håndværket</p>
-        <h2>Økse, høvl og tålmodighed</h2>
-        <p>
-          Tømmer, der er bilet med økse, har en anden overflade og en anden holdbarhed
-          end savet træ. Når en gammel bjælke skal erstattes, bliver den nye bearbejdet
-          på samme måde som den oprindelige – så reparationen falder i ét med bygningen.
-        </p>
-        <p>
-          Jeg arbejder med de materialer, bygningen er født med: kernetræ af eg og fyr,
-          trænagler i stedet for skruer, kalk, linoliemaling og trætjære. Det er
-          materialer, der kan ånde, repareres og ældes pænt.
-        </p>
-      </div>
+  <!-- ============ II. ANATOMI ============ -->
+  <section id="anatomi" class="section section-paper">
+    <div class="wrap">
+      <header class="section-head">
+        <p class="eyebrow"><span class="num">II</span> Anatomi</p>
+        <h2>Et bindingsværk, <em>stykke for stykke</em></h2>
+        <p>Hvert stykke tømmer har sit navn og sin opgave. Peg på en bygningsdel og se, hvad den gør – og hvad jeg kigger efter, når jeg kommer ud til dit hus.</p>
+      </header>
 
-      <ul class="craft-list">
-        <li>
-          <strong>Bilning med økse</strong>
-          <span>Bredøkse og skarøkse til at forme tømmer, som man gjorde for hundreder af år siden.</span>
-        </li>
-        <li>
-          <strong>Håndhøvling</strong>
-          <span>Profiler, lister og overflader høvlet med gamle høvle – så sporene passer til originalen.</span>
-        </li>
-        <li>
-          <strong>Traditionelle samlinger</strong>
-          <span>Tap og hul, bladsamlinger og laskninger, låst med trænagler.</span>
-        </li>
-        <li>
-          <strong>Naturmaterialer</strong>
-          <span>Linoliemaling, kalk og trætjære – diffusionsåbent og reparerbart.</span>
-        </li>
-      </ul>
+      <div class="anatomy">
+        <div class="anatomy-figure">
+          <svg class="anatomy-svg" viewBox="0 0 900 460" role="img" aria-label="Tegning af en bindingsværksvæg med fem fag">
+            <g data-part="tavl" class="part part-tavl">
+              <path d="M49 76h146v149H49zM49 239h146v135H49zM213 76h146v149H213zM213 239h146v135H213zM541 76h146v149H541zM541 239h146v135H541zM705 76h146v149H705zM705 239h146v135H705zM377 76h146v74H377z"/>
+            </g>
+            <g data-part="vindue" class="part part-vindue">
+              <path d="M240 98h92v104h-92zM568 98h92v104h-92z"/>
+              <path class="glaze" d="M286 98v104M240 150h92M614 98v104M568 150h92"/>
+            </g>
+            <g data-part="doer" class="part part-doer">
+              <path d="M386 160h128v214H386z"/>
+              <path class="glaze" d="M418 160v214M450 160v214M482 160v214M396 200l108 0M396 330h108"/>
+            </g>
+            <g data-part="syld" class="part part-syld">
+              <ellipse cx="62" cy="414" rx="30" ry="18"/><ellipse cx="130" cy="418" rx="34" ry="16"/><ellipse cx="200" cy="412" rx="30" ry="19"/>
+              <ellipse cx="268" cy="418" rx="32" ry="16"/><ellipse cx="336" cy="413" rx="30" ry="18"/><ellipse cx="404" cy="418" rx="34" ry="16"/>
+              <ellipse cx="474" cy="412" rx="30" ry="19"/><ellipse cx="542" cy="418" rx="32" ry="16"/><ellipse cx="610" cy="413" rx="30" ry="18"/>
+              <ellipse cx="678" cy="418" rx="34" ry="16"/><ellipse cx="748" cy="412" rx="30" ry="19"/><ellipse cx="816" cy="417" rx="32" ry="16"/>
+              <path class="ground" d="M10 438H890"/>
+            </g>
+            <g data-part="syldstok" class="part part-beam"><path d="M30 384H870"/></g>
+            <g data-part="stolpe" class="part part-beam"><path d="M40 76V374M204 76V374M368 76V374M532 76V374M696 76V374M860 76V374"/></g>
+            <g data-part="losholt" class="part part-beam thin"><path d="M40 232H368M532 232H860M368 152H532"/></g>
+            <g data-part="skraabaand" class="part part-beam thin"><path d="M52 372 192 240M848 372 708 240"/></g>
+            <g data-part="rem" class="part part-beam"><path d="M28 66H872"/></g>
+            <g data-part="bjaelke" class="part part-end">
+              <path d="M27 30h26v26H27zM191 30h26v26h-26zM355 30h26v26h-26zM519 30h26v26h-26zM683 30h26v26h-26zM847 30h26v26h-26z"/>
+              <path class="rings" d="M40 43m-7 0a7 7 0 1 0 14 0a7 7 0 1 0-14 0M204 43m-7 0a7 7 0 1 0 14 0a7 7 0 1 0-14 0M368 43m-7 0a7 7 0 1 0 14 0a7 7 0 1 0-14 0M532 43m-7 0a7 7 0 1 0 14 0a7 7 0 1 0-14 0M696 43m-7 0a7 7 0 1 0 14 0a7 7 0 1 0-14 0M860 43m-7 0a7 7 0 1 0 14 0a7 7 0 1 0-14 0"/>
+            </g>
+            <g data-part="naegler" class="part part-peg">
+              <circle cx="40" cy="232" r="4"/><circle cx="204" cy="232" r="4"/><circle cx="368" cy="232" r="4"/><circle cx="532" cy="232" r="4"/>
+              <circle cx="696" cy="232" r="4"/><circle cx="860" cy="232" r="4"/><circle cx="368" cy="152" r="4"/><circle cx="532" cy="152" r="4"/>
+              <circle cx="40" cy="378" r="4"/><circle cx="204" cy="378" r="4"/><circle cx="368" cy="378" r="4"/><circle cx="532" cy="378" r="4"/>
+              <circle cx="696" cy="378" r="4"/><circle cx="860" cy="378" r="4"/><circle cx="40" cy="70" r="4"/><circle cx="204" cy="70" r="4"/>
+              <circle cx="368" cy="70" r="4"/><circle cx="532" cy="70" r="4"/><circle cx="696" cy="70" r="4"/><circle cx="860" cy="70" r="4"/>
+              <circle cx="186" cy="248" r="4"/><circle cx="714" cy="248" r="4"/>
+            </g>
+          </svg>
+        </div>
+
+        <div class="anatomy-side">
+          <ul class="parts" role="list">
+            <li><button type="button" data-part="syld"><span class="pn">1</span>Syld</button></li>
+            <li><button type="button" data-part="syldstok"><span class="pn">2</span>Syldstok</button></li>
+            <li><button type="button" data-part="stolpe"><span class="pn">3</span>Stolper</button></li>
+            <li><button type="button" data-part="losholt"><span class="pn">4</span>Løsholter</button></li>
+            <li><button type="button" data-part="skraabaand"><span class="pn">5</span>Skråbånd</button></li>
+            <li><button type="button" data-part="rem"><span class="pn">6</span>Rem</button></li>
+            <li><button type="button" data-part="bjaelke"><span class="pn">7</span>Bjælkeender</button></li>
+            <li><button type="button" data-part="tavl"><span class="pn">8</span>Tavl</button></li>
+            <li><button type="button" data-part="naegler"><span class="pn">9</span>Trænagler</button></li>
+          </ul>
+
+          <div class="part-info" aria-live="polite">
+            <p class="part-info-kicker">Bygningsdel</p>
+            <h3 class="part-info-title">Peg på væggen</h3>
+            <p class="part-info-text">Vælg en bygningsdel for at se, hvad den gør, og hvad der typisk går galt.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- OM -->
-  <section id="om" class="section">
+  <!-- ============ CITAT ============ -->
+  <section class="quote-band">
+    <div class="wrap">
+      <svg class="rings-deco" viewBox="0 0 400 400" aria-hidden="true">
+        <g fill="none" stroke="currentColor">
+          <path d="M200 196c3 0 5 2 5 5s-3 6-6 5-5-3-4-6 2-4 5-4z"/>
+          <path d="M200 182c12 0 22 8 22 20s-10 21-23 20-21-9-20-21 9-19 21-19z"/>
+          <path d="M201 164c22 0 40 16 39 38s-17 39-41 38-38-17-37-39 17-37 39-37z"/>
+          <path d="M202 144c33 1 59 25 57 58s-27 58-61 56-56-26-55-58 26-57 59-56z"/>
+          <path d="M203 122c45 1 79 34 77 80s-36 79-82 77-77-36-75-80 35-78 80-77z"/>
+          <path d="M204 98c58 1 103 45 100 104s-47 103-107 100-99-46-97-104 46-101 104-100z"/>
+          <path d="M205 72c72 2 128 57 124 131s-58 128-133 124-123-57-120-130 57-127 129-125z"/>
+          <path d="M206 44c88 2 157 70 152 160s-71 157-162 152-150-70-147-159 70-155 157-153z"/>
+          <path d="M207 14c104 3 186 83 180 190s-84 186-192 180-178-83-174-189 83-184 186-181z"/>
+          <path d="M200 200 330 40" stroke-dasharray="3 6"/>
+        </g>
+      </svg>
+      <blockquote>
+        <p>“Så meget som nødvendigt,<br><em>så lidt som muligt.</em>”</p>
+        <footer>Det bærende princip i al bygningsbevaring – og i mit arbejde.</footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- ============ III. HÅNDVÆRKET ============ -->
+  <section id="haandvaerk" class="section section-dark">
+    <div class="wrap">
+      <header class="section-head">
+        <p class="eyebrow"><span class="num">III</span> Håndværket</p>
+        <h2>Samlinger, der har holdt i <em>flere hundrede år</em></h2>
+        <p>Før søm og skruer blev tømmer samlet, så træet selv bar. De samme samlinger bruger jeg i dag – fordi de virker, og fordi de kan repareres igen om hundrede år.</p>
+      </header>
+
+      <div class="plates">
+        <figure class="plate">
+          <svg viewBox="0 0 240 170" aria-hidden="true">
+            <path class="p-wood" d="M30 10h50v150H30z"/>
+            <path class="p-hidden" d="M56 72h24v36H56z"/>
+            <path class="p-wood" d="M120 66h110v48H120z"/>
+            <path class="p-wood" d="M98 76h22v28H98z"/>
+            <path class="p-grain" d="M40 20v130M50 14v140M70 18v134M135 76h85M140 90h80M132 104h90"/>
+            <circle class="p-hole" cx="68" cy="90" r="4"/>
+            <circle class="p-hole" cx="110" cy="88" r="4"/>
+            <path class="p-arrow" d="M94 140H62M66 136l-4 4 4 4"/>
+            <path class="p-lead" d="M110 88 130 34"/><text class="p-note" x="122" y="28">forskudt naglehul</text>
+          </svg>
+          <figcaption><span class="pl">Pl. I</span><b>Tap og hul</b>Tappen bores en anelse forskudt af hullet, så trænaglen trækker samlingen tæt, når den slås i.</figcaption>
+        </figure>
+
+        <figure class="plate">
+          <svg viewBox="0 0 240 170" aria-hidden="true">
+            <path class="p-wood" d="M10 100h110v20h50v20H10z"/>
+            <path class="p-wood" d="M120 30h110v40h-60V50h-50z"/>
+            <path class="p-cut" d="M120 100v20h50M120 50h50v20"/>
+            <path class="p-grain" d="M20 110h90M20 128h140M130 40h90M180 58h40"/>
+            <path class="p-arrow" d="M145 78v16M141 90l4 4 4-4"/>
+            <text class="p-note" x="12" y="158">halvt træ fra hver side</text>
+          </svg>
+          <figcaption><span class="pl">Pl. II</span><b>Bladsamling</b>Halvdelen af træet fjernes fra hvert stykke, så de griber om hinanden. Bruges i hjørner og ved skråbånd.</figcaption>
+        </figure>
+
+        <figure class="plate">
+          <svg viewBox="0 0 240 170" aria-hidden="true">
+            <path class="p-wood" d="M8 62h142v14l-58 22v14H8z"/>
+            <path class="p-wood" d="M156 62h76v50H98v-10l58-22z"/>
+            <path class="p-grain" d="M18 72h120M18 88h90M18 104h70M170 72h52M140 90h82M110 104h112"/>
+            <circle class="p-hole" cx="110" cy="80" r="4"/><circle class="p-hole" cx="146" cy="94" r="4"/>
+            <path class="p-lead" d="M128 87 150 140"/><text class="p-note" x="120" y="156">skrå lask med hage</text>
+          </svg>
+          <figcaption><span class="pl">Pl. III</span><b>Laskning</b>Kun det rådne stykke skæres ud, og nyt træ laskes ind. Resten af den originale bjælke bliver siddende.</figcaption>
+        </figure>
+
+        <figure class="plate">
+          <svg viewBox="0 0 240 170" aria-hidden="true">
+            <path class="p-wood" d="M14 76 168 80l18 6-18 6-154 4z"/>
+            <path class="p-grain" d="M14 86h170M30 79l120 3M30 93l120-3"/>
+            <g transform="translate(196 132)">
+              <path class="p-wood" d="M-12-29h24l17 17v24l-17 17h-24l-17-17v-24z"/>
+              <path class="p-grain" d="M0 0m-5 0a5 5 0 1 0 10 0a5 5 0 1 0-10 0M0 0m-12 0a12 12 0 1 0 24 0a12 12 0 1 0-24 0M0 0m-20 0a20 20 0 1 0 40 0a20 20 0 1 0-40 0"/>
+            </g>
+            <text class="p-note" x="14" y="56">kløvet eg – ikke savet</text>
+          </svg>
+          <figcaption><span class="pl">Pl. IV</span><b>Trænagel</b>Kløvet langs fibrene, så den er stærk. Ingen søm og ingen skruer, der ruster og sprænger træet.</figcaption>
+        </figure>
+      </div>
+
+      <div class="tools-head">
+        <h3>Værktøjskassen</h3>
+        <p>Det er værktøjet, der sætter sporene. Når en ny bjælke skal sidde ved siden af en 300 år gammel, skal overfladen fortælle samme historie.</p>
+      </div>
+      <div class="tools">
+        <figure class="tool">
+          <svg viewBox="0 0 160 120" aria-hidden="true">
+            <path class="t-handle" d="M22 112C48 84 78 52 104 30"/>
+            <path class="t-steel" d="M96 22 140 8l8 58-30-8-14 0-10-20z"/>
+            <path class="t-edge" d="M140 8l8 58"/>
+          </svg>
+          <figcaption><b>Bredøkse</b>Biler stokken flad og giver den karakteristiske, let bølgede overflade.</figcaption>
+        </figure>
+        <figure class="tool">
+          <svg viewBox="0 0 160 120" aria-hidden="true">
+            <path class="t-wood" d="M12 66h136v24H12z"/>
+            <path class="t-wood" d="M22 66c0-18 8-28 22-28 8 0 10 10 6 28"/>
+            <path class="t-steel" d="M78 30l14 0-6 46-10 0z"/>
+            <path class="t-wood" d="M70 40h10l-4 26h-8z"/>
+            <path class="t-shaving" d="M92 66c10-14 30-16 34-4 3 9-8 13-12 6-3-5 2-9 6-6"/>
+          </svg>
+          <figcaption><b>Høvl</b>Profiler og lister høvles efter originalen – med gamle høvle, der passer til tidens former.</figcaption>
+        </figure>
+        <figure class="tool">
+          <svg viewBox="0 0 160 120" aria-hidden="true">
+            <path class="t-wood" d="M14 52c0-6 4-8 10-8h46c6 0 8 4 8 8v12c0 4-2 8-8 8H24c-6 0-10-2-10-8z"/>
+            <path class="t-steel" d="M78 50h8v20h-8z"/>
+            <path class="t-steel" d="M86 54h58l6 6-6 6H86z"/>
+          </svg>
+          <figcaption><b>Stemmejern</b>Til huller og tappe. Slås med en kølle af træ, aldrig med hammer.</figcaption>
+        </figure>
+        <figure class="tool">
+          <svg viewBox="0 0 160 120" aria-hidden="true">
+            <path class="t-wood" d="M20 14h120c4 0 6 3 6 7s-2 7-6 7H20c-4 0-6-3-6-7s2-7 6-7z"/>
+            <path class="t-steel" d="M77 28h6v54h-6z"/>
+            <path class="t-steel" d="M76 82h8l-2 8 4 4-6 4 4 4-4 4-2 6-2-6-4-4 4-4-6-4 4-4z"/>
+          </svg>
+          <figcaption><b>Navr</b>Håndbor til naglehuller. Langsomt – men det river ikke fibrene.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ IV. BYGGESKIK ============ -->
+  <section id="byggeskik" class="section">
+    <div class="wrap">
+      <header class="section-head">
+        <p class="eyebrow"><span class="num">IV</span> Byggeskik</p>
+        <h2>Hver tid har sin <em>tømmermand</em></h2>
+        <p>For at reparere rigtigt skal man vide, hvornår og hvordan bygningen er bygget. Et tagværk fra middelalderen er noget helt andet end et bindingsværkshus fra 1700-tallet.</p>
+      </header>
+
+      <ol class="timeline">
+        <li>
+          <span class="tl-year">1100–1250</span>
+          <h3>Romanske kirker</h3>
+          <p>De første stenkirker får tagværker af svært egetømmer. Mange af dem bærer stadig taget i dag.</p>
+        </li>
+        <li>
+          <span class="tl-year">1250–1536</span>
+          <h3>Gotikken</h3>
+          <p>Hvælvinger, tårne og våbenhuse. Klokkestole og tagstole bliver mere avancerede.</p>
+        </li>
+        <li>
+          <span class="tl-year">1536–1700</span>
+          <h3>Bindingsværkets storhedstid</h3>
+          <p>Købstædernes huse med udkragede etager og udskårne knægte – alt i eg.</p>
+        </li>
+        <li>
+          <span class="tl-year">1700–1850</span>
+          <h3>Fyr afløser eg</h3>
+          <p>Egeskovene svinder, og importeret fyr tager over. Bindingsværket bliver landets byggeskik.</p>
+        </li>
+        <li>
+          <span class="tl-year">1850–1950</span>
+          <h3>Maskinernes tid</h3>
+          <p>Maskinsavet tømmer, søm og bolte. Mange af de gamle teknikker går i glemmebogen.</p>
+        </li>
+        <li class="tl-now">
+          <span class="tl-year">I dag</span>
+          <h3>Bevaring</h3>
+          <p>At kunne de gamle teknikker er forudsætningen for at bevare de bygninger, der er tilbage.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ V. OM ============ -->
+  <section id="om" class="section section-lime">
     <div class="wrap split split-about">
       <figure class="portrait">
         <!-- Erstat med et rigtigt foto: <img src="assets/daniel.jpg" alt="Daniel Nygaard Rasmussen på arbejde"> -->
@@ -192,10 +482,11 @@
           </svg>
           <span>Foto af Daniel</span>
         </div>
+        <figcaption class="portrait-tag">Daniel Nygaard Rasmussen<br><span>Tømrer · Gammelt håndværk</span></figcaption>
       </figure>
       <div>
-        <p class="eyebrow">Om Daniel</p>
-        <h2>Grundig, ærlig og nem at tale med</h2>
+        <p class="eyebrow"><span class="num">V</span> Om Daniel</p>
+        <h2>Grundig, ærlig og <em>nem at tale med</em></h2>
         <p>
           Jeg hedder Daniel Nygaard Rasmussen og har i mange år arbejdet som tømrer
           med gamle bygninger. Det, der driver mig, er at forstå, hvordan bygningen
@@ -207,54 +498,41 @@
           jeg gør. Du får et tilbud, du kan forstå, og en tømrer, der passer på dit hus,
           som var det hans eget.
         </p>
-        <ul class="values">
-          <li><strong>Grundighed</strong> – hver bjælke vurderes, før noget skiftes.</li>
-          <li><strong>Respekt</strong> – for bygningen, historien og dine ønsker.</li>
-          <li><strong>Åbenhed</strong> – klare aftaler og løbende besked undervejs.</li>
-        </ul>
-        <a class="btn" href="#kontakt">Skriv til Daniel</a>
+
+        <dl class="principles">
+          <div><dt>Reparér før udskift</dt><dd>Hver bjælke vurderes. Det, der kan bære, bliver siddende.</dd></div>
+          <div><dt>Samme materiale, samme metode</dt><dd>Eg erstattes med eg, kalk med kalk. Så arbejder huset som før.</dd></div>
+          <div><dt>Åbenhed</dt><dd>Klare aftaler og løbende besked om, hvad vi finder undervejs.</dd></div>
+        </dl>
+        <a class="btn" href="#kontakt">Skriv til Daniel <span aria-hidden="true">→</span></a>
       </div>
     </div>
   </section>
 
-  <!-- ARBEJDSGANG -->
-  <section id="arbejdsgang" class="section section-lime">
+  <!-- ============ VI. ARBEJDSGANG ============ -->
+  <section id="arbejdsgang" class="section">
     <div class="wrap">
       <header class="section-head">
-        <p class="eyebrow">Arbejdsgang</p>
-        <h2>Sådan foregår et samarbejde</h2>
+        <p class="eyebrow"><span class="num">VI</span> Arbejdsgang</p>
+        <h2>Sådan foregår et <em>samarbejde</em></h2>
       </header>
       <ol class="steps">
-        <li>
-          <h3>Du skriver eller ringer</h3>
-          <p>Fortæl kort om bygningen og opgaven. Billeder hjælper meget, men er ikke et krav.</p>
-        </li>
-        <li>
-          <h3>Besigtigelse</h3>
-          <p>Jeg kommer ud og ser på bygningen, så vi sammen kan finde den rigtige løsning.</p>
-        </li>
-        <li>
-          <h3>Klart tilbud</h3>
-          <p>Du får et skriftligt tilbud med beskrivelse af arbejdet, materialer og tidsplan.</p>
-        </li>
-        <li>
-          <h3>Udførelse</h3>
-          <p>Arbejdet udføres omhyggeligt, og du får løbende besked om, hvad vi finder.</p>
-        </li>
-        <li>
-          <h3>Dokumentation</h3>
-          <p>Ved fredede bygninger dokumenteres arbejdet med fotos og beskrivelse.</p>
-        </li>
+        <li><h3>Du skriver eller ringer</h3><p>Fortæl kort om bygningen og opgaven. Billeder hjælper meget, men er ikke et krav.</p></li>
+        <li><h3>Besigtigelse</h3><p>Jeg kommer ud og ser på bygningen, så vi sammen kan finde den rigtige løsning.</p></li>
+        <li><h3>Klart tilbud</h3><p>Et skriftligt tilbud med beskrivelse af arbejdet, materialer og tidsplan.</p></li>
+        <li><h3>Udførelse</h3><p>Arbejdet udføres omhyggeligt, og du får løbende besked om, hvad vi finder.</p></li>
+        <li><h3>Dokumentation</h3><p>Ved fredede bygninger dokumenteres arbejdet med fotos og beskrivelse.</p></li>
       </ol>
     </div>
   </section>
 
-  <!-- KONTAKT -->
+  <!-- ============ VII. KONTAKT ============ -->
   <section id="kontakt" class="section section-contact">
+    <div class="timber-band" aria-hidden="true"></div>
     <div class="wrap split split-contact">
       <div class="contact-intro">
-        <p class="eyebrow">Kontakt</p>
-        <h2>Fortæl om dit byggeprojekt</h2>
+        <p class="eyebrow"><span class="num">VII</span> Kontakt</p>
+        <h2>Fortæl om dit <em>byggeprojekt</em></h2>
         <p>
           Skriv et par linjer om din bygning og opgaven – så vender jeg tilbage inden for
           to hverdage. Det er helt uforpligtende.
@@ -274,10 +552,11 @@
             <span>Hele Danmark efter aftale</span>
           </li>
         </ul>
-        <p class="hint">Har du billeder af bygningen? Send dem gerne på mail efter du har udfyldt formularen.</p>
+        <p class="hint">Har du billeder af bygningen? Send dem gerne på mail, efter du har udfyldt formularen.</p>
       </div>
 
       <form class="contact-form" id="contact-form" action="kontakt.php" method="post" novalidate>
+        <p class="form-kicker">Uforpligtende henvendelse</p>
         <div class="field-row">
           <div class="field">
             <label for="navn">Navn *</label>
@@ -340,7 +619,7 @@
           </label>
         </div>
 
-        <button class="btn btn-block" type="submit">Send henvendelse</button>
+        <button class="btn btn-block" type="submit">Send henvendelse <span aria-hidden="true">→</span></button>
         <p class="form-status" role="status" aria-live="polite"></p>
       </form>
     </div>

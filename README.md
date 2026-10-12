@@ -26,16 +26,31 @@ Ingen build-trin, ingen eksterne afhængigheder, ingen cookies eller tracking.
    i `index.html` med `<img src="assets/daniel.jpg" alt="Daniel Nygaard Rasmussen på arbejde">`
    (der står en kommentar i koden).
 
-## Udgivelse på webhotel (subdomæne)
+## Automatisk udgivelse
 
-1. Opret subdomænet i webhotellets kontrolpanel (f.eks. `daniel.ditdomæne.dk`).
-   Det får sin egen mappe, typisk `/public_html/daniel/` eller lignende.
-2. Upload **alle filer** (inkl. mappen `assets/`) til subdomænets rodmappe via FTP/SFTP
-   eller filhåndteringen i kontrolpanelet. `README.md` og `.git` behøver ikke komme med.
-3. Slå SSL/HTTPS til for subdomænet (Let's Encrypt i kontrolpanelet).
-4. Test formularen – tjek også spam-mappen første gang.
+Hvert push til `main` udgives automatisk til `www.villadsclaes.dk/danieldanieldaniel/`
+(Simply.com) via FTPS med GitHub Actions – se `.github/workflows/deploy.yml`.
+Kun ændrede filer uploades. Udgivelsen kan også startes manuelt under **Actions → Udgiv til webhotel → Run workflow**.
 
-Alle stier er relative, så siden virker uanset hvilken mappe/subdomæne den ligger i.
+**Opsætning (én gang)** – på GitHub under *Settings → Secrets and variables → Actions*:
+
+| Type | Navn | Værdi |
+|---|---|---|
+| Secret | `FTP_SERVER` | FTP-serveren fra Simply's kontrolpanel (f.eks. `linuxNN.unoeuro.com`) |
+| Secret | `FTP_USERNAME` | FTP-brugernavn (typisk `villadsclaes.dk`) |
+| Secret | `FTP_PASSWORD` | FTP-adgangskoden |
+| Variable *(valgfri)* | `FTP_SERVER_DIR` | Mappen på serveren. Standard: `public_html/danieldanieldaniel/` |
+
+`README.md`, `.github/` og `.claude/` uploades ikke.
+
+### Eget .dk-domæne
+
+Når Daniels domæne er oprettet, peges det ned i mappen `public_html/danieldanieldaniel/`
+(hos Simply: tilføj domænet og vælg mappen som dets webroot, eller peg DNS til Simply og opret det som alias).
+Slå SSL/HTTPS til for domænet. Alle stier på sitet er relative, så det virker både under
+`villadsclaes.dk/danieldanieldaniel/` og på det nye domæne uden ændringer.
+
+Test formularen efter første udgivelse – tjek også spam-mappen første gang.
 
 ## Lokal visning
 

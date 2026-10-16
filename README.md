@@ -41,7 +41,7 @@ Kun ændrede filer uploades. Udgivelsen kan også startes manuelt under **Action
 | Secret | `FTP_PASSWORD` | FTP-adgangskoden |
 | Variable *(valgfri)* | `FTP_SERVER_DIR` | Mappen på serveren. Standard: `public_html/danieldanieldaniel/` |
 
-`README.md`, `.github/` og `.claude/` uploades ikke.
+`README.md`, `CLAUDE.md`, `.github/` og `.claude/` uploades ikke.
 
 ### Eget .dk-domæne
 

@@ -42,3 +42,4 @@ jobs:
             .github/**
             .claude/**
             README.md
+            CLAUDE.md
